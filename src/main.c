@@ -6,7 +6,7 @@
 /*   By: sklaps <sklaps@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:18 by sklaps            #+#    #+#             */
-/*   Updated: 2024/07/04 17:58:59 by sklaps           ###   ########.fr       */
+/*   Updated: 2024/07/08 18:02:33 by sklaps           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,16 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = split(argv[1], ' ');
+	init_stack_a(&a, argv + 1);
+	if (!stack_sorted(a))
+	{
+		if (stack_len(a) == 2)
+			sa(&a, false);
+		else if (stack_len(a) == 3)
+			sort_three(&a);
+		else
+			sort_stacks(&a, &b);
+	}
+	free_stack(&a);
+	return (0);
+}
